@@ -130,7 +130,14 @@
     if (typeof ym !== 'undefined') ym(YM_ID, 'reachGoal', goal);
     if (typeof gtag !== 'undefined') gtag('event', goal, { event_category: 'contact' });
   });
-})();</script></div><script type="module">globalThis.process??={},globalThis.process.env??={};function e(){let e=document.documentElement.classList.contains(`dark`);document.querySelectorAll(`.yandex-map`).forEach(t=>{let n=e?t.dataset.dark:t.dataset.light;t.src!==n&&(t.src=n)})}e(),new MutationObserver(e).observe(document.documentElement,{attributes:!0,attributeFilter:[`class`]});</script></body></html><script>
+})();</script></div><script type="module">globalThis.process??={},globalThis.process.env??={};function e(){let e=document.documentElement.classList.contains(`dark`);document.querySelectorAll(`.yandex-map`).forEach(t=>{let n=e?t.dataset.dark:t.dataset.light;t.src!==n&&(t.src=n)})}e(),new MutationObserver(e).observe(document.documentElement,{attributes:!0,attributeFilter:[`class`]});</script><script>
+    // Виброотклик на кнопках действий (Android; iOS Safari не поддерживает — молча пропускает)
+    document.addEventListener('pointerdown', (e) => {
+      if (!navigator.vibrate) return;
+      const el = e.target.closest('[data-goal], #open-msg-sheet, #share-case, #msg-sheet a, .theme-toggle button');
+      if (el) navigator.vibrate(10);
+    }, { passive: true });
+  </script></body></html><script>
   // Полоска прогресса чтения
   (() => {
     const bar = document.getElementById('read-progress');
